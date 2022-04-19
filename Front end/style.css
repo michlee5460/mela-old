@@ -2,3 +2,27 @@ body {
   font-family: 'Inter', sans-serif;
   background-color: #F8F8F6;
 }
+
+
+.currentnav{
+  border-bottom: 2px solid #556EF2;
+  text-align: center;
+}
+
+.navbar{
+  margin-top: 30px;
+}
+
+.nav-link {
+  color: black;
+}
+
+
+.logo {
+  font-weight: 700;
+  color: #556EF2;
+  font-size: 24px;
+}
+
+
+
