@@ -7,7 +7,7 @@ var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-var SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
+var SCOPES = "https://www.googleapis.com/auth/spreadsheets";
 
 var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
@@ -104,27 +104,32 @@ function listContacts() {
 }
 
 function addContactToSheet() {
-  console.log("Working");
   var contactName = document.getElementById("contact-name").value;
   var contactNumber = document.getElementById("contact-number").value;
-  document.getElementById('result').textContent = contactName;
-  var values = [
-    [
-    contactName, contactNumber
-    ],
-    // Additional rows ...
-  ];
-  var body = {
-    values: values
-  };
-  gapi.client.sheets.spreadsheets.values.append({
+  var params = {
+    // The ID of the spreadsheet to update.
     spreadsheetId: '1vZgO8rbWy5ns95FQ1I_MYlQ7iB3U_mee_FJ7WP_75l8',
-    range: 'Sheet1!A2',
+
+    // The A1 notation of a range to search for a logical table of data.
+    // Values will be appended after the last row of the table.
+    range: 'Sheet1!A11:B11',
+
+    // How the input data should be interpreted.
     valueInputOption: 'USER_ENTERED',
+
+    // How the input data should be inserted.
     insertDataOption: 'INSERT_ROWS',
-    resource: body
-  }).then((response) => {
-    var result = response.result;
-    console.log(`${result.updates.updatedCells} cells appended.`)
+  };
+
+  var valueRangeBody = {
+    "majorDimension": "rows",
+    "values": [[contactName, contactNumber]]
+  };
+
+  var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+  request.then(function(response) {
+    console.log(response.result);
+  }, function(reason) {
+    console.error('error: ' + reason.result.error.message);
   });
 }
