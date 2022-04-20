@@ -29,6 +29,16 @@ body {
 
 /* tumor board page */
 
+
+.add-patient{
+  border: none;
+  background-color: white;
+  color: #556EF2;
+  font-weight: 600;
+  display: inline;
+  margin-left: 15px;
+  text-align: center;
+}
 .agenda-table {
   margin-top: 15px !important;
   /* margin-left: 12px;
