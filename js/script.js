@@ -13,7 +13,7 @@ var authorizeButton = document.getElementById('authorize_button');
 var signoutButton = document.getElementById('signout_button');
 
 /**
- *  On load, called to load the auth2 library and API client library.
+ * On load, called to load the auth2 library and API client library.
  */
 function handleClientLoad() {
   gapi.load('client:auth2', initClient);
@@ -86,14 +86,15 @@ function appendPre(message) {
 function listContacts() {
   gapi.client.sheets.spreadsheets.values.get({
     spreadsheetId: '1vZgO8rbWy5ns95FQ1I_MYlQ7iB3U_mee_FJ7WP_75l8',
-    range: 'Sheet1!A2:B',
+    range: 'Sheet1!A2:C',
   }).then(function(response) {
     var range = response.result;
     if (range.values.length > 0) {
     for (i = 0; i < range.values.length; i++) {
         var row = range.values[i];
-        console.log(row);
-        appendPre(row[0] + ', ' + row[1]);
+        var likesDogs = "Doesn't like dogs";
+        if (row[2] == "TRUE") { likesDogs =  "Likes Dogs"; }
+        appendPre(row[0] + ', ' + row[1] + ', ' + likesDogs);
     }
     } else {
     appendPre('No data found.');
@@ -104,6 +105,7 @@ function listContacts() {
 }
 
 function addContactToSheet() {
+  var likesDogs = document.getElementById("likes-dogs").checked;
   var contactName = document.getElementById("contact-name").value;
   var contactNumber = document.getElementById("contact-number").value;
   var params = {
@@ -112,7 +114,7 @@ function addContactToSheet() {
 
     // The A1 notation of a range to search for a logical table of data.
     // Values will be appended after the last row of the table.
-    range: 'Sheet1!A11:B11',
+    range: 'Sheet1!A2:B11',
 
     // How the input data should be interpreted.
     valueInputOption: 'USER_ENTERED',
@@ -123,11 +125,13 @@ function addContactToSheet() {
 
   var valueRangeBody = {
     "majorDimension": "rows",
-    "values": [[contactName, contactNumber]]
+    "values": [[contactName, contactNumber, likesDogs]]
   };
 
   var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
   request.then(function(response) {
+    document.getElementById('content').innerHTML = "";
+    listContacts();
     console.log(response.result);
   }, function(reason) {
     console.error('error: ' + reason.result.error.message);
