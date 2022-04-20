@@ -1,0 +1,82 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F8F8F6;
+}
+
+
+.current-nav{
+  border-bottom: 2px solid #556EF2;
+  text-align: center;
+}
+
+.navbar{
+  margin-top: 30px;
+}
+
+.nav-link {
+  color: black;
+  text-align: center;
+}
+
+.logo {
+  font-weight: 700;
+  color: #556EF2;
+  font-size: 24px;
+  text-align: left;
+}
+
+
+
+/* tumor board page */
+
+
+.add-patient{
+  border: none;
+  background-color: white;
+  color: #556EF2;
+  font-weight: 600;
+  display: inline;
+  margin-left: 15px;
+  text-align: center;
+}
+.agenda-table {
+  margin-top: 15px !important;
+  /* margin-left: 12px;
+  margin-right: 12px; */
+  border-radius: 5px;
+  background-color: white;
+  border-top: none !important;
+  color: #4D4D4D;
+}
+
+
+.agenda{
+  margin-top: 60px;
+}
+
+.table-background {
+  background-color: white;
+  margin-left: 16px;
+  border-radius: 5px;
+  margin-top: 15px;
+  padding-left: 20px;
+  padding-right:20px;
+}
+.table-header{
+  font-style: italic;
+  font-weight: 400;
+}
+
+.table>:not(caption)>*>* {
+  padding: 1.5rem 1.5rem !important;
+}
+
+
+.table>:not(:first-child) {
+  border-top: 2px solid currentColor;
+}
+
+.conference-date{
+  margin-left: 12px;
+  font-style: italic;
+}
