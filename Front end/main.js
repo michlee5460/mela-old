@@ -1,6 +1,7 @@
 
 
 // drag and drop table rows
+// reference: https://bootsnipp.com/snippets/P2pn5
 var fixHelperModified = function(e, tr) {
     var $originals = tr.children();
     var $helper = tr.clone();
@@ -18,7 +19,7 @@ var fixHelperModified = function(e, tr) {
         });
     };
 
-$("#drag-table tbody").sortable({
+$("#april-4th-table tbody").sortable({
     helper: fixHelperModified,
     stop: updateIndex
 }).disableSelection();
@@ -32,3 +33,8 @@ $("#drag-table tbody").sortable({
         });
 
 
+
+// Data Picker Initialization
+$('.datepicker').datepicker({
+    inline: true
+  });

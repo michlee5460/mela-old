@@ -23,42 +23,46 @@
 
 
   <body>
+    <!-- top navigation bar -->
+    <div class="navbar sticky-top">
     <div class="container-lg">
-
-      <!-- top navigation bar -->
-      <div class="row navbar">
-        <div class="col-4">
-          <a class="nav-link logo" aria-current="page" href="#">MELAbase</a>
-        </div>
-        <div class="col-5">
-            <div class="row">
-                <div class="col-4">
-                  <a class="nav-link active" href="index.html">Patient List</a>
-                </div>
-                <div class="col-2">
-                </div>
-                <div class="col-4">
-                  <a class="nav-link current-nav" aria-current="page" href="Tumor Board.html">Tumor board</a>
-                </div>
-              </div>
+        <div class="col-2">
+            <a class="nav-link logo" aria-current="page" href="#">MELAbase</a>
         </div>
         <div class="col-3">
-          <div class="row">
+            <div class="row">
+            <div class="col">
+                <a class="nav-link" href="index.html">Patient List</a>
+            </div>
+            <!-- <div class="col-2">
+            </div> -->
+            <div class="col">
+                <a class="nav-link active current-nav" aria-current="page" href="Tumor Board.html">Tumor board</a>
+            </div>
+            </div>
+        </div>
+        <div class="col-4"></div>
+        <div class="col-3">
+            <div class="row">
             <div class="col-6">
             </div>
             <div class="col-3">
-              <img src="asset/profile.svg" alt="Top right profile picture"/>
+                <img src="asset/profile.svg" alt="Top right profile picture"/>
             </div>
             <div class="col-3">
-              <img src="asset/settings.svg" alt="Settings Icon"/>
+                <img src="asset/settings.svg" alt="Settings Icon"/>
             </div>
-          </div>
+            </div>
         </div>
+    </div>
+    </div>
 
+    <div class="container-lg">
+        <!-- April 4 agenda table -->
         <div class="row agenda">
             <p class="conference-date"> Apr 4, 2022 </p>
             <div class="table-background">
-                <table class="table table-hover agenda-table " id="drag-table">
+                <table class="table table-hover agenda-table" id="april-4th-table">
                     <thead>
                     <tr>
                         <th scope="col" class="table-header">Name</th>
@@ -112,13 +116,13 @@
                 </table>
                 <div class="row">
                     <div class="col-3">
-                        <button class="add-patient">
+                        <button class="add-patient" onclick="window.location.href='patient record.html'">
                             <div class="row">
                                 <div class="col-3">
                                     <img src="asset/plus_icon.svg" alt="plus icon"/>
                                 </div>
                                 <div class="col-9">
-                                    <p> Add patient</p>
+                                    <p href="patient record.html"> Add patient</p>
                                 </div>
                             </div>
                         </button>
@@ -131,6 +135,7 @@
 
 
 
+        <!-- March 28 table -->
         <div class="row agenda">
             <p class="conference-date"> March 28, 2022 </p>
             <div class="table-background">
@@ -206,25 +211,20 @@
 
 
 
-    </div>
 
-
-    </div>
-
-<!-- https://htmldom.dev/drag-and-drop-table-row/ -->
 
 
     </div>
+
+
+
+
 
   
 
 
 
 
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="main.js"></script>
   </body>
